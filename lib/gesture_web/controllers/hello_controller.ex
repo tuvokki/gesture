@@ -8,14 +8,12 @@ defmodule GestureWeb.HelloController do
   end
 
   def show(conn, %{"messenger" => messenger}) do
-    """
-    Note: If the body of the action needs access to the full map of parameters bound to the params
-    variable in addition to the bound messenger variable, we could define show/2 like this:
+    # Note: If the body of the action needs access to the full map of parameters bound to the params
+    # variable in addition to the bound messenger variable, we could define show/2 like this:
 
-    def show(conn, %{"messenger" => messenger} = params) do
-      ...
-    end
-    """
+    # def show(conn, %{"messenger" => messenger} = params) do
+    #   ...
+    # end
     render conn, "show.html", messenger: messenger
   end
 end
