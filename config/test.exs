@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :gesture, Gesture.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "elixir",
+  password: "yolofish",
   database: "gesture_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
