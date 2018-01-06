@@ -18,6 +18,7 @@ defmodule GestureWeb.Router do
 
     get "/", PageController, :index
     get "/hello", HelloController, :index
+    get "/hello/flashes", HelloController, :flashes
     get "/hello/:messenger", HelloController, :show
     resources "/users", UserController
     resources "/posts", PostController, only: [:index, :show]

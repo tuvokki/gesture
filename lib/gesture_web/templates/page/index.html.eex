@@ -13,6 +13,9 @@
       <li>
         <a href="<%= hello_path(@conn, :show, "Frank") %>">To the Hello Frank Page!</a>
       </li>
+      <li>
+        <a href="<%= hello_path(@conn, :flashes) %>">To the Flashes Page!</a>
+      </li>
     </ul>
   </div>
 

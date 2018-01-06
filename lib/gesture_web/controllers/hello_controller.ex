@@ -16,4 +16,12 @@ defmodule GestureWeb.HelloController do
     # end
     render conn, "show.html", messenger: messenger
   end
+
+  def flashes(conn, _params) do
+    # just testing the flashes
+    conn
+    |> put_flash(:info, "Welcome to Phoenix, from flash info!")
+    |> put_flash(:error, "Let's pretend we have an error.")
+    |> render("index.html")
+  end
 end
