@@ -17,6 +17,12 @@ config :gesture, GestureWeb.Endpoint,
   pubsub: [name: Gesture.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Adding json accept headers mime type
+# config :mime, :types, %{
+#   "application/json" => ["json"],
+#   "application/xml" => ["xml"]
+# }
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

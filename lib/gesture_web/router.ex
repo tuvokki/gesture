@@ -20,7 +20,9 @@ defmodule GestureWeb.Router do
     get "/hello", HelloController, :index
     get "/hello/flashes", HelloController, :flashes
     get "/hello/:messenger", HelloController, :show
-    resources "/users", UserController
+    # Commented out because this route was picked up by tests which shoud be routed through the api
+    # TODO: handle the user-views by a UserViewController
+    # resources "/users", UserController
     resources "/posts", PostController, only: [:index, :show]
     resources "/comments", CommentController, except: [:delete]
 
@@ -38,7 +40,9 @@ defmodule GestureWeb.Router do
   forward "/jobs", BackgroundJob.Plug
 
   # Other scopes may use custom stacks.
-  # scope "/api", GestureWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", GestureWeb do
+    pipe_through :api
+
+    resources "/users", UserController, except: [:new, :edit]
+  end
 end
