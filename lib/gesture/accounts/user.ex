@@ -7,7 +7,6 @@ defmodule Gesture.Accounts.User do
   schema "users" do
     field :email, :string
     field :name, :string
-    field :password, :string
     field :spiritanimal, :string
     field :username, :string
 
@@ -17,8 +16,8 @@ defmodule Gesture.Accounts.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:name, :email, :password, :spiritanimal, :username])
-    |> validate_required([:name, :email, :password, :spiritanimal, :username])
+    |> cast(attrs, [:name, :email, :spiritanimal, :username])
+    |> validate_required([:name, :email, :spiritanimal, :username])
     |> unique_constraint(:username)
   end
 end

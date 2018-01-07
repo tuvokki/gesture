@@ -5,7 +5,6 @@ defmodule Gesture.Repo.Migrations.CreateUsers do
     create table(:users) do
       add :name, :string
       add :email, :string
-      add :password, :string
       add :spiritanimal, :string
       add :username, :string
 

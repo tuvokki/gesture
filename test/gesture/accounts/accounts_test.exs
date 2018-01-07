@@ -6,9 +6,9 @@ defmodule Gesture.AccountsTest do
   describe "users" do
     alias Gesture.Accounts.User
 
-    @valid_attrs %{age: 42, email: "some email", name: "some name", password: "some password", spiritanimal: "some spiritanimal"}
-    @update_attrs %{age: 43, email: "some updated email", name: "some updated name", password: "some updated password", spiritanimal: "some updated spiritanimal"}
-    @invalid_attrs %{age: nil, email: nil, name: nil, password: nil, spiritanimal: nil}
+    @valid_attrs %{age: 42, email: "some@email.com", name: "some name", spiritanimal: "some spiritanimal"}
+    @update_attrs %{age: 43, email: "some.updated@email.com", name: "some updated name", spiritanimal: "some updated spiritanimal"}
+    @invalid_attrs %{age: nil, email: nil, name: nil, spiritanimal: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -32,9 +32,8 @@ defmodule Gesture.AccountsTest do
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
       assert user.age == 42
-      assert user.email == "some email"
+      assert user.email == "some@email.com"
       assert user.name == "some name"
-      assert user.password == "some password"
       assert user.spiritanimal == "some spiritanimal"
     end
 
@@ -47,9 +46,8 @@ defmodule Gesture.AccountsTest do
       assert {:ok, user} = Accounts.update_user(user, @update_attrs)
       assert %User{} = user
       assert user.age == 43
-      assert user.email == "some updated email"
+      assert user.email == "some.updated@email.com"
       assert user.name == "some updated name"
-      assert user.password == "some updated password"
       assert user.spiritanimal == "some updated spiritanimal"
     end
 
