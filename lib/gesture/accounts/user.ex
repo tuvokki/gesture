@@ -13,11 +13,20 @@ defmodule Gesture.Accounts.User do
 
     timestamps()
   end
+  
+  # def validate_array_inclusion(changeset, field, allowed, options \\ []) do
+  #   validate_change changeset, field, fn _field, values ->
+  #     valid? = Enum.all? for value <- values, do: value in allowed
+  #     if valid?, do: [], else: [{field, options[:message] || "is invalid"}]
+  #   end
+  # end
 
   @doc false
   def changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:name, :age, :email, :spiritanimal, :password])
     |> validate_required([:name, :age, :email, :spiritanimal, :password])
+    # |> validate_array_inclusion(:spiritanimal, ~w(unicorn dragon cow), message: "custom message here")
   end
+
 end
