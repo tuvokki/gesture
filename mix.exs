@@ -30,6 +30,7 @@ defmodule Gesture.Mixfile do
   def application do
     [
       mod: {Gesture.Application, []},
+      applications: [:timex],
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -51,7 +52,8 @@ defmodule Gesture.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:ex_doc, "~> 0.16", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.16", only: :dev, runtime: false},
+      {:timex, "~> 3.1"}
     ]
   end
 

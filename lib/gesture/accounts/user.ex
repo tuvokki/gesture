@@ -1,7 +1,7 @@
 defmodule Gesture.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Gesture.Accounts.User
+  alias Gesture.Accounts.{User, Credential}
 
 
   schema "users" do
@@ -9,7 +9,8 @@ defmodule Gesture.Accounts.User do
     field :name, :string
     field :spiritanimal, :string
     field :username, :string
-
+    has_one :credential, Credential
+    
     timestamps()
   end
 
